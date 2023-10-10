@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <h3>Welcome Spend Track!!!</h3>
+
+
+    {% if user.is_authenticated %}
+    <h3>Hi, {{name}}</h3>
+    <h3>You log in successfully!!!</h3>
+    <button type="submit"><a href="/logout">SignOut</a></button>
+    {% else %}
+    <h3>Nobody log in</h3>
+    <h3>Please signin or signup</h3>
+    <button type="submit"><a href="/signup">SignUp</a></button>
+    <button type="submit"><a href="/login">Signin</a></button>
+    {% endif %}
+</body>
+</html>
