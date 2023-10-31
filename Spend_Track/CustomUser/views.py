@@ -23,14 +23,14 @@ def signin(request):
                 print(username)
                 login(request, user)
                 print(user.is_authenticated)
-                return render(request, "index.html", {"name":username})
+                return redirect(home)
 
     return render(request, "login.html")
 
 def signout(request):
     logout(request=request)
 
-    return render(request, "logout.html")
+    return redirect(home)
 
 def resigner(request):
     if request.method == "POST":

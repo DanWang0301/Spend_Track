@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from CustomUser.views import *
+from Track.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,5 @@ urlpatterns = [
     path('signin/', signin, name="signin"),
     path('signout/', signout, name="signout"),
     path('signup/', resigner, name="resigner"),
-
+    path('track/', display, name="display")
 ]
