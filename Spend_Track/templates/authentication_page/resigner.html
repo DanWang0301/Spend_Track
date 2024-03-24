@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>註冊</title>
-    </head>
-    <body>
-        <h3>Create your account!</h3>
+{% extends 'base.html' %}
+{% block title %} Track Resigner {% endblock %}
+{% block content %}
+    <div>
+        <h3>Create your account:</h3>
         <form method="post" action="/signup/">
             {% csrf_token %}
             <div class="form-group">
@@ -26,5 +23,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
-    </body>
-</html>
+    </div>
+    
+{% endblock %}

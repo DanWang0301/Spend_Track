@@ -14,6 +14,10 @@ def insert(request):
         Track_Amount = request.Post['Amount']
         Track_Detail = request.Post['Detail']
         Track_Date = request.Post['Date']
+        TrackRecord.objects.create( Track_Type=Track_Type, Credit_Card=Credit_Card,
+                                    Track_Amount=Track_Amount, Track_Detail=Track_Detail,
+                                    Track_Date=Track_Date
+                                    )
 
 def update(request):
     if request.method == 'POST':

@@ -24,8 +24,13 @@ def signin(request):
                 login(request, user)
                 print(user.is_authenticated)
                 return redirect(home)
+            else:
+                return render(request, "authentication_page/login.html", {"wrong_password":True})
 
-    return render(request, "login.html")
+        else:
+            return render(request, "authentication_page/login.html", {"wrong_user":email})
+
+    return render(request, "authentication_page/login.html")
 
 def signout(request):
     logout(request=request)
@@ -49,4 +54,4 @@ def resigner(request):
                 # return HttpResponse("User Add OK")
                 return redirect("signin")
 
-    return render(request, "resigner.html") 
+    return render(request, "authentication_page/resigner.html") 
