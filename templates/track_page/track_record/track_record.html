@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Track Home {% endblock %}
+{% block content %}
+<div class="row justify-content-around">
+    {% if user.is_authenticated %}
+    <div>
+        <h3>Hi, {{user.name}}</h3>
+    </div>
+    <h3>You log in successfully!!!</h3>
+</div>
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+		<tr>
+            <th>類型</th>
+            <th>金額</th>
+            <th>詳細內容</th>
+            <th>日期</th>
+            <th>執行選項</th>
+		</tr>
+	</thead>
+    <tbody>
+		{% for item in post %}
+		<tr>
+			<td>{{item.Track_Type}}</td>
+			<td>{{item.Track_Amount}}</td>
+			<td>{{item.Track_Detail}}</td>
+			<td>{{item.Track_Date}}</td>
+			<td>
+				<a href="#" class="btn btn-info">修改</a>
+				<a href="#" class="btn btn-danger">刪除</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+	</tbody>
+</table>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% else %}
+<h3>Nobody log in</h3> <br />
+<h4>Please signin or signup</h4>
+
+{% endif %}
+
+{% endblock %}
